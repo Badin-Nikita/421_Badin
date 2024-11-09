@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +21,13 @@ namespace _421_Badin.Pages
     /// </summary>
     public partial class AuthPage : Page
     {
+        public static string GetHash(string password)
+        {
+            using (var hash = SHA1.Create())
+            {
+                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(password)).Select(x => x.ToString("X2")));
+            }
+        }
         public AuthPage()
         {
             InitializeComponent();
@@ -44,9 +52,10 @@ namespace _421_Badin.Pages
             }
             using (var db = new Entities())
             {
+                var passwordHash = GetHash(PasswordPasswordBox.Password);
                 var user = db.User
                 .AsNoTracking()
-                .FirstOrDefault(u => u.Login == LoginTextBox.Text && u.Password == PasswordPasswordBox.Password);
+                .FirstOrDefault(u => u.Login == LoginTextBox.Text && u.Password == passwordHash);
 
                 if (user == null)
                 {
@@ -69,6 +78,11 @@ namespace _421_Badin.Pages
                 }
 
             }
+        }
+
+        private void RegistrationButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new RegPage());
         }
     }
 }

@@ -23,6 +23,7 @@ namespace _421_Badin.Pages
         public AdminPage()
         {
             InitializeComponent();
+            DataGridUser.ItemsSource = Entities.GetContext().User.ToList();
         }
     }
 }

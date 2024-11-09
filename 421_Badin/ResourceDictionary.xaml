@@ -15,7 +15,8 @@
     <Style TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
         <Setter Property="FontSize" Value="14pt"/>
-        <Setter Property="Foreground" Value="#F2EED7"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="Transparent"/>
     </Style>
 
     <Style TargetType="Label">
@@ -32,7 +33,6 @@
     <Style TargetType="TextBox">
         <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
         <Setter Property="FontSize" Value="14pt"/>
-        <Setter Property="Foreground" Value="#F2EED7"/>
         <Setter Property="Width" Value="250"/>
         <Setter Property="Height" Value="40"/>
         <Setter Property="Foreground" Value="Black"/>
@@ -59,5 +59,21 @@
     <Style TargetType="Grid">
         <Setter Property="Background" Value="#798645"/>
     </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="FontFamily" Value="Arial Rounded MT Bold"/>
+        <Setter Property="FontSize" Value="14pt"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
 </ResourceDictionary>
     
